@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
 const todoSchema = new mongoose.Schema({
-    nome: String,
-    telefone: String,
-    title: String,
-    description: String
+    name: String,
+    email: String,
+    avatarUrl: String
 });
 
 const Todo = mongoose.model('Todo', todoSchema);

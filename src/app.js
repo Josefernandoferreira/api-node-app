@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/crud_db', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://0.0.0.0:27017/crud_db', { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Erro de conexão com o MongoDB:'));
 db.once('open', () => {
@@ -17,6 +17,6 @@ db.once('open', () => {
 
 app.use('/todos', todoRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Servidor rodando na porta ${PORT}`);
 });
